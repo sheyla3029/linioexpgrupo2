@@ -134,5 +134,6 @@ LOGOUT_REDIRECT_URL = '/'
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 DROPBOX_OAUTH2_TOKEN = 'XFNyjroXsqAAAAAAAAAAAXXRk7BvEf4sBwhv5A_CGTIr4Yu0OzXkgRrA6JBKb2aX'
 
-import django_heroku
-django_heroku.settings(locals())
+if 'ON_HEROKU' in os.environ:
+    import django_heroku
+    django_heroku.settings(locals())
